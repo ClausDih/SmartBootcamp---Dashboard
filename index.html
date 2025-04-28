@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gráficos Gás NH3</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div>
+      <canvas id="grafico-linha"></canvas>
+    </div>
+    <div>
+      <canvas id="grafico-barra"></canvas>
+    </div>
+  </body>
+</html>
+
+<script>
+  const graficoLinha = document.getElementById("grafico-linha");
+  const graficoBarra = document.getElementById("grafico-barra");
+
+  new Chart(graficoLinha, {
+    type: "line",
+    data: {
+      labels: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      datasets: [
+        {
+          label: "Nível de Gás Amônia (NH3) no ambiente",
+          data: [0.06, 0.03, 0.05, 0.04, 0.07, 0.03, 0.03, 0.03, 0.04, 0.04, 0.05],
+          borderWidth: 3,
+          borderColor: '#008000',
+          backgroundColor: '#008000'
+        }
+      ],
+    },
+  });
+
+  new Chart(graficoBarra, {
+    type: "bar",
+    data: {
+      labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+      datasets: [
+        {
+          label: "Nível máximo de Gás Amônia (NH3) durante o período",
+          data: [0.08, 0.10, 0.09, 0.11, 0.9, 0.7],
+          backgroundColor: '#F6517A'
+        },
+        {
+        label: "Nível mínimo de Gás Amônia (NH3) durante o período",
+          data: [0.02, 0.03, 0.04, 0.2, 0.4, 0.2],
+          backgroundColor: '#48a4f5'
+        }
+      ],
+    },
+  });
+</script>
